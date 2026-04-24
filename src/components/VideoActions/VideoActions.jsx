@@ -2,6 +2,45 @@ import { useState } from "react";
 import "./VideoActions.css";
 
 function VideoActions({ video }) {
+    const [likeCount, setLikeCount] = useState(
+    parseInt((video.likes || "0").replace("K", "")) * 1000
+  );
+  const [liked, setLiked] = useState(false);
+  const [disliked, setDisliked] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
+
+  function handleLike() {
+    if (liked) {
+      setLiked(false);
+      setLikeCount((prev) => prev - 1);
+    } else {
+      setLiked(true);
+      setLikeCount((prev) => prev + 1);
+      if (disliked) setDisliked(false);
+    }
+  }
+
+  function handleDislike() {
+    if (disliked) {
+      setDisliked(false);
+    } else {
+      setDisliked(true);
+      if (liked) {
+        setLiked(false);
+        setLikeCount((prev) => prev - 1);
+      }
+    }
+  }
+
+  function handleSubscribe() {
+    setSubscribed((prev) => !prev);
+  }
+
+  function formatCount(n) {
+    if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + "M";
+    if (n >= 1000) return (n / 1000).toFixed(1) + "K";
+    return String(n);
+  }
 return (
     <div className="video-actions">
       {/* ── Left group: Like / Dislike ── */}
