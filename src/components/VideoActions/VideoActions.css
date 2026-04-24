@@ -45,18 +45,6 @@
   transform: scale(0.96);
 }
 
-.video-actions__btn--like,
-.video-actions__btn--dislike {
-  border-radius: 0;
-  background: none;
-}
-
-.video-actions__btn--like:hover,
-.video-actions__btn--dislike:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-
 .video-actions__btn--active {
   color: var(--accent);
 }
@@ -113,5 +101,15 @@ video-actions__subscribe {
   }
 }
 
+.video-actions__btn--like,
+.video-actions__btn--dislike {
+  border-radius: 0;
+  background: none;
+}
+
+.video-actions__btn--like:hover,
+.video-actions__btn--dislike:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
 
 
