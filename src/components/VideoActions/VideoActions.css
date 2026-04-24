@@ -45,15 +45,73 @@
   transform: scale(0.96);
 }
 
+.video-actions__btn--like,
+.video-actions__btn--dislike {
+  border-radius: 0;
+  background: none;
+}
+
+.video-actions__btn--like:hover,
+.video-actions__btn--dislike:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 
 .video-actions__btn--active {
   color: var(--accent);
 }
 
+video-actions__subscribe {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  padding: 10px 20px;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease, opacity 0.2s ease;
+  white-space: nowrap;
+}
 .video-actions__btn--active svg {
   fill: var(--accent);
 }
 
+.video-actions__subscribe:hover {
+  opacity: 0.9;
+}
+
+.video-actions__subscribe:active {
+  transform: scale(0.97);
+}
+
+/* Subscribed state */
+.video-actions__subscribe--subscribed {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.video-actions__subscribe--subscribed:hover {
+  background-color: #cc0000;
+  color: white;
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .video-actions {
+    gap: 6px;
+  }
+
+  .video-actions__subscribe {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+}
 
 
 
