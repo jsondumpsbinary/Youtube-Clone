@@ -70,12 +70,29 @@ const EXPLORE_ITEMS = [
   },
 ];
 
-function Sidebar({ isOpen }) {
+function Sidebar({ isOpen, onNavigate, activePage }) {
+  function handleClick(label) {
+    if (label === "Home") onNavigate("home");
+    else if (label === "History") onNavigate("history");
+    // other items are UI-only for now
+  }
+
+  function isActive(label) {
+    if (label === "Home" && activePage === "home") return true;
+    if (label === "History" && activePage === "history") return true;
+    return false;
+  }
+
   return (
     <aside className={`sidebar ${isOpen ? "sidebar--open" : "sidebar--mini"}`}>
       <div className="sidebar__section">
         {NAV_ITEMS.map((item) => (
-          <button key={item.label} className="sidebar__item" aria-label={item.label}>
+          <button
+            key={item.label}
+            className={`sidebar__item ${isActive(item.label) ? "sidebar__item--active" : ""}`}
+            aria-label={item.label}
+            onClick={() => handleClick(item.label)}
+          >
             <span className="sidebar__item-icon">{item.icon}</span>
             {isOpen && <span className="sidebar__item-label">{item.label}</span>}
           </button>
