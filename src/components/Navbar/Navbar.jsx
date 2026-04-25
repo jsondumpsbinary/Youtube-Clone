@@ -53,7 +53,7 @@ function Navbar({ onToggleSidebar, onGoHome, theme, onThemeChange }) {
 
         <button className="navbar__logo" onClick={onGoHome} aria-label="Go home">
           <svg className="navbar__logo-icon" viewBox="0 0 90 20" fill="none">
-            <rect width="30" height="20" rx="4" fill="#FF0000" />
+            <rect width="40" height="20" rx="4" fill="#FF0000" />
             <polygon points="12,6 12,14 20,10" fill="white" />
             <text x="34" y="15" fill="currentColor" fontSize="16" fontWeight="700" fontFamily="Roboto, sans-serif">
               TubeLight
