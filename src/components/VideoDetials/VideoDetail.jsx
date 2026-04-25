@@ -54,10 +54,10 @@ function VideoDetail({ video, onGoHome }) {
             </div>
           </div>
 
-    
+          {/* Like / Subscribe / Share buttons */}
           <VideoActions video={video} />
 
-
+          {/* Stats + Description Box */}
           <div className="video-detail__description-box">
             <p className="video-detail__stats">
               <strong>{video.views}</strong> &nbsp;&bull;&nbsp; {video.uploadedAt}
@@ -65,10 +65,36 @@ function VideoDetail({ video, onGoHome }) {
             <p className="video-detail__description">{video.description}</p>
           </div>
 
-
+          {/* Comments Section */}
           <Comments />
         </div>
 
+        {/* ── Right Column: Suggested Videos Placeholder ── */}
+        <aside className="video-detail__sidebar">
+          <h3 className="video-detail__sidebar-title">Up Next</h3>
+          {[
+            { seed: "sug1", title: "Advanced React Patterns — Custom Hooks Deep Dive", channel: "CodeWithMe", views: "340K" },
+            { seed: "sug2", title: "How JavaScript Really Works Under the Hood", channel: "DevMastery", views: "812K" },
+            { seed: "sug3", title: "10 CSS Tricks Every Developer Should Know", channel: "PixelPerfect", views: "567K" },
+            { seed: "sug4", title: "Node.js Event Loop Explained Simply", channel: "BackendBros", views: "293K" },
+            { seed: "sug5", title: "GitHub Actions CI/CD Full Tutorial", channel: "DevOps Simplified", views: "421K" },
+          ].map((item, i) => (
+            <div key={i} className="video-detail__suggested-card">
+              <div className="video-detail__suggested-thumb">
+                <img
+                  src={`https://picsum.photos/seed/${item.seed}/168/94`}
+                  alt={item.title}
+                  loading="lazy"
+                />
+              </div>
+              <div className="video-detail__suggested-info">
+                <p className="video-detail__suggested-title">{item.title}</p>
+                <p className="video-detail__suggested-channel">{item.channel}</p>
+                <p className="video-detail__suggested-meta">{item.views} views</p>
+              </div>
+            </div>
+          ))}
+        </aside>
       </div>
     </div>
   );
