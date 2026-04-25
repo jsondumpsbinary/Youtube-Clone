@@ -94,6 +94,7 @@ function App() {
         <VideoDetail
           video={selectedVideo}
           onGoHome={handleGoHome}
+          onSelectVideo={handleSelectVideo}
         />
       );
     }
