@@ -1,6 +1,10 @@
 import "./VideoCard.css";
 
 function VideoCard({ video, onSelectVideo }) {
+  function handleClick() {
+    onSelectVideo(video);
+  }
+
   return (
     <div className="video-card" onClick={handleClick} role="button" tabIndex={0}
       onKeyDown={(e) => e.key === "Enter" && handleClick()}
