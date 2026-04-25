@@ -57,4 +57,59 @@
   letter-spacing: 0.3px;
 }
 
+.video-card__info {
+  display: flex;
+  gap: 12px;
+  padding: 4px 4px 8px;
+}
+
+.video-card__avatar-wrapper {
+  flex-shrink: 0;
+}
+
+.video-card__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  object-fit: cover;
+}
+
+.video-card__meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.video-card__title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.video-card__channel {
+  font-size: 13px;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.video-card__channel:hover {
+  color: var(--text-primary);
+}
+
+.video-card__stats {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+
 

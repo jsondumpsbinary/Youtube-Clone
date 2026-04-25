@@ -1,6 +1,3 @@
-/* ═══════════════════════════════════════════
-   History Page Layout
-   ═══════════════════════════════════════════ */
 .history-page {
   display: flex;
   gap: 40px;
@@ -261,9 +258,6 @@
   color: var(--text-primary);
 }
 
-/* ═══════════════════════════════════════════
-   Right Sidebar Panel
-   ═══════════════════════════════════════════ */
 .history-page__sidebar {
   width: 280px;
   flex-shrink: 0;
