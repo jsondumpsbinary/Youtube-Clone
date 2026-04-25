@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Home from "./components/Home/Home";
@@ -20,16 +20,21 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [currentPage, setCurrentPage] = useState("home");
+  const [theme, setTheme] = useState("dark");
 
   // Global watch history — starts empty, only grows when user watches videos
   const [watchHistory, setWatchHistory] = useState([]);
+
+  // Apply theme to <html> so every element including body picks it up
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   function handleToggleSidebar() {
     setSidebarOpen((prev) => !prev);
   }
 
   function handleSelectVideo(video) {
-    // Add to history: remove previous entry for this video (if any), then prepend
     const entry = {
       id: video.id,
       title: video.title,
@@ -44,7 +49,6 @@ function App() {
     };
 
     setWatchHistory((prev) => {
-      // Remove duplicate if already watched
       const filtered = prev.filter((v) => v.id !== video.id);
       return [entry, ...filtered];
     });
@@ -87,7 +91,12 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar onToggleSidebar={handleToggleSidebar} onGoHome={handleGoHome} />
+      <Navbar
+        onToggleSidebar={handleToggleSidebar}
+        onGoHome={handleGoHome}
+        theme={theme}
+        onThemeChange={setTheme}
+      />
 
       <div className="app__body">
         <Sidebar

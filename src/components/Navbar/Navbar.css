@@ -174,3 +174,151 @@
     display: none;
   }
 }
+
+/* ═══════════════════════════════════════════
+   Profile dropdown wrapper
+   ═══════════════════════════════════════════ */
+.navbar__profile-wrap {
+  position: relative;
+}
+
+/* ── Dropdown panel ── */
+.profile-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 300px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+  z-index: 2000;
+  overflow: hidden;
+  animation: menuFadeIn 0.15s ease;
+}
+
+@keyframes menuFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── User info row at top ── */
+.profile-menu__user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.profile-menu__avatar-lg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--yt-red), #ff6b35);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profile-menu__user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.profile-menu__name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.profile-menu__handle {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* ── Divider ── */
+.profile-menu__divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 4px 0;
+}
+
+/* ── Generic menu item ── */
+.profile-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.15s;
+}
+
+.profile-menu__item:hover {
+  background-color: var(--bg-hover);
+}
+
+.profile-menu__item svg {
+  flex-shrink: 0;
+  color: var(--text-primary);
+}
+
+/* Chevron → pushed to the right */
+.profile-menu__chevron {
+  margin-left: auto;
+  color: var(--text-secondary) !important;
+}
+
+/* ── Back button (in submenu) ── */
+.profile-menu__back {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.15s;
+}
+
+.profile-menu__back:hover {
+  background-color: var(--bg-hover);
+}
+
+/* ── Hint text ── */
+.profile-menu__hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 8px 16px;
+}
+
+/* ── Theme item: checkmark pushed to right ── */
+.profile-menu__item--theme {
+  position: relative;
+}
+
+.profile-menu__check {
+  margin-left: auto;
+  color: var(--accent) !important;
+  flex-shrink: 0;
+}
+
+.profile-menu__item--selected {
+  color: var(--text-primary);
+}

@@ -29,6 +29,19 @@
   --shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
 }
 
+/* ── Light theme overrides ── */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f2f2f2;
+  --bg-hover: #e5e5e5;
+  --bg-card: #f9f9f9;
+  --border-color: #d3d3d3;
+  --text-primary: #0f0f0f;
+  --text-secondary: #606060;
+  --text-muted: #909090;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+}
+
 html {
   font-size: 14px;
 }
