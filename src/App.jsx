@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import VideoDetail from "./components/VideoDetail/VideoDetail";
 import History from "./components/History/History";
 import Shorts from "./components/Shorts/Shorts";
+import Library from "./components/Library/Library";
 import "./App.css";
 
 /* ── Format current time as "3:45 PM" ── */
@@ -102,6 +103,9 @@ function App() {
     }
     if (currentPage === "shorts") {
       return <Shorts onAddToHistory={onAddToHistory} />;
+    }
+    if (currentPage === "library") {
+      return <Library />;
     }
     if (currentPage === "video" && selectedVideo !== null) {
       return (

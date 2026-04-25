@@ -75,6 +75,7 @@ function Sidebar({ isOpen, onNavigate, activePage }) {
     if (label === "Home") onNavigate("home");
     else if (label === "Shorts") onNavigate("shorts");
     else if (label === "History") onNavigate("history");
+    else if (label === "Library") onNavigate("library");
     // other items are UI-only for now
   }
 
@@ -82,6 +83,7 @@ function Sidebar({ isOpen, onNavigate, activePage }) {
     if (label === "Home" && activePage === "home") return true;
     if (label === "Shorts" && activePage === "shorts") return true;
     if (label === "History" && activePage === "history") return true;
+    if (label === "Library" && activePage === "library") return true;
     return false;
   }
 

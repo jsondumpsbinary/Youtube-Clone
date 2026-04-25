@@ -68,7 +68,7 @@ function Navbar({ onToggleSidebar, onGoHome, theme, onThemeChange }) {
           <input
             type="text"
             className="navbar__search-input"
-            placeholder="Search"
+            placeholder="Your Endsem Starts 6th of May"
             value={searchQuery}
             onChange={handleSearchChange}
             aria-label="Search videos"
