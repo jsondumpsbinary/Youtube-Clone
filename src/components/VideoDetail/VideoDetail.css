@@ -47,76 +47,55 @@
   align-items: start;
 }
 
-/* ── Video Player Placeholder ── */
-.video-detail__player {
-  position: relative;
+/* ── Video Player ── */
+.video-detail__player-container {
   width: 100%;
   aspect-ratio: 16 / 9;
+  background-color: #000;
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: #000;
   margin-bottom: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-.video-detail__thumbnail {
+.video-detail__player {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  filter: brightness(0.65);
-  transition: filter 0.3s ease;
+  outline: none;
 }
 
-.video-detail__player:hover .video-detail__thumbnail {
-  filter: brightness(0.5);
-}
-
-.video-detail__play-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
-.video-detail__play-icon {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.75);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  cursor: pointer;
-}
-
-.video-detail__play-icon:hover {
-  background-color: var(--yt-red);
-  transform: scale(1.1);
-  border-color: transparent;
-}
-
-.video-detail__play-note {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.55);
-  letter-spacing: 0.5px;
-}
-
-.video-detail__duration-badge {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.85);
-  color: #fff;
-  font-size: 12px;
+/* ── Subscribe Button ── */
+.video-detail__subscribe-btn {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 8px 16px;
+  border-radius: 20px;
   font-weight: 600;
-  padding: 2px 6px;
-  border-radius: 4px;
-  letter-spacing: 0.3px;
+  font-size: 14px;
+  transition: opacity 0.2s;
 }
+
+.video-detail__subscribe-btn:hover {
+  opacity: 0.9;
+}
+
+/* ── Suggested Video Duration ── */
+.video-detail__suggested-thumb {
+  position: relative;
+}
+
+.video-detail__suggested-duration {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
 
 /* ── Video Title ── */
 .video-detail__title {
