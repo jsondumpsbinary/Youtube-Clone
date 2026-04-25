@@ -2,14 +2,12 @@ import VideoActions from "../VideoActions/VideoActions";
 import Comments from "../Comments/Comments";
 import "./VideoDetail.css";
 
-function VideoDetail({ video, onGoHome, onSelectVideo }) {
-  const suggestedVideos = [
-    { id: "s1", seed: "sug1", title: "Advanced React Patterns — Custom Hooks Deep Dive", channel: "CodeWithMe", views: "340K views", uploadedAt: "2 days ago", thumbnail: "https://picsum.photos/seed/sug1/168/94", duration: "12:45" },
-    { id: "s2", seed: "sug2", title: "How JavaScript Really Works Under the Hood", channel: "DevMastery", views: "812K views", uploadedAt: "5 months ago", thumbnail: "https://picsum.photos/seed/sug2/168/94", duration: "18:20" },
-    { id: "s3", seed: "sug3", title: "10 CSS Tricks Every Developer Should Know", channel: "PixelPerfect", views: "567K views", uploadedAt: "1 week ago", thumbnail: "https://picsum.photos/seed/sug3/168/94", duration: "10:05" },
-    { id: "s4", seed: "sug4", title: "Node.js Event Loop Explained Simply", channel: "BackendBros", views: "293K views", uploadedAt: "3 weeks ago", thumbnail: "https://picsum.photos/seed/sug4/168/94", duration: "15:30" },
-    { id: "s5", seed: "sug5", title: "GitHub Actions CI/CD Full Tutorial", channel: "DevOps Simplified", views: "421K views", uploadedAt: "1 month ago", thumbnail: "https://picsum.photos/seed/sug5/168/94", duration: "25:40" },
-  ];
+function VideoDetail({ video, onGoHome, onSelectVideo, allVideos }) {
+  // Use allVideos for suggestions, filtering out the current video
+  const suggestedVideos = allVideos
+    .filter((v) => v.id !== video.id)
+    .slice(0, 10); // Show up to 10 suggestions
+
 
   return (
     <div className="video-detail">

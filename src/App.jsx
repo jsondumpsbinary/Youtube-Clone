@@ -26,6 +26,24 @@ function App() {
   // Global watch history — starts empty, only grows when user watches videos
   const [watchHistory, setWatchHistory] = useState([]);
 
+  // Global video data fetched from videos.json
+  const [allVideos, setAllVideos] = useState([]);
+
+  // Fetch all videos once on mount
+  useEffect(() => {
+    async function fetchAllVideos() {
+      try {
+        const response = await fetch("/videos.json");
+        if (!response.ok) throw new Error("Failed to fetch videos");
+        const data = await response.json();
+        setAllVideos(data);
+      } catch (error) {
+        console.error("Error fetching video data:", error);
+      }
+    }
+    fetchAllVideos();
+  }, []);
+
   // Apply theme to <html> so every element including body picks it up
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -91,10 +109,16 @@ function App() {
           video={selectedVideo}
           onGoHome={handleGoHome}
           onSelectVideo={handleSelectVideo}
+          allVideos={allVideos}
         />
       );
     }
-    return <Home onSelectVideo={handleSelectVideo} />;
+    return (
+      <Home 
+        onSelectVideo={handleSelectVideo} 
+        allVideos={allVideos}
+      />
+    );
   }
 
   return (
