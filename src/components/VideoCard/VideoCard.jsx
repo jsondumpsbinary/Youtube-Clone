@@ -2,6 +2,7 @@ import "./VideoCard.css";
 
 function VideoCard({ video, onSelectVideo }) {
   function handleClick() {
+  
     onSelectVideo(video);
   }
 
@@ -10,7 +11,7 @@ function VideoCard({ video, onSelectVideo }) {
       onKeyDown={(e) => e.key === "Enter" && handleClick()}
       aria-label={`Watch ${video.title}`}
     >
-
+   
       <div className="video-card__thumbnail-wrapper">
         <img
           className="video-card__thumbnail"
@@ -19,9 +20,11 @@ function VideoCard({ video, onSelectVideo }) {
           loading="lazy"
         />
         <span className="video-card__duration">{video.duration}</span>
-      </div> 
+      </div>
 
+ 
       <div className="video-card__info">
+        
         <div className="video-card__avatar-wrapper">
           <img
             className="video-card__avatar"
@@ -31,6 +34,7 @@ function VideoCard({ video, onSelectVideo }) {
           />
         </div>
 
+    
         <div className="video-card__meta">
           <h3 className="video-card__title">{video.title}</h3>
           <p className="video-card__channel">{video.channel}</p>
@@ -39,9 +43,6 @@ function VideoCard({ video, onSelectVideo }) {
           </p>
         </div>
       </div>
-
-
-      
     </div>
   );
 }

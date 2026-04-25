@@ -6,6 +6,7 @@
   padding: 12px 0;
 }
 
+/* Like/Dislike */
 .video-actions__group {
   display: flex;
   align-items: center;
@@ -21,6 +22,7 @@
   flex-shrink: 0;
 }
 
+/* ── Base button  ── */
 .video-actions__btn {
   display: flex;
   align-items: center;
@@ -45,11 +47,29 @@
   transform: scale(0.96);
 }
 
+/* Like/Dislike */
+.video-actions__btn--like,
+.video-actions__btn--dislike {
+  border-radius: 0;
+  background: none;
+}
+
+.video-actions__btn--like:hover,
+.video-actions__btn--dislike:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Active (liked/disliked) state */
 .video-actions__btn--active {
   color: var(--accent);
 }
 
-video-actions__subscribe {
+.video-actions__btn--active svg {
+  fill: var(--accent);
+}
+
+/* ── Subscribe Button ── */
+.video-actions__subscribe {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -64,9 +84,6 @@ video-actions__subscribe {
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease, opacity 0.2s ease;
   white-space: nowrap;
-}
-.video-actions__btn--active svg {
-  fill: var(--accent);
 }
 
 .video-actions__subscribe:hover {
@@ -100,16 +117,3 @@ video-actions__subscribe {
     justify-content: center;
   }
 }
-
-.video-actions__btn--like,
-.video-actions__btn--dislike {
-  border-radius: 0;
-  background: none;
-}
-
-.video-actions__btn--like:hover,
-.video-actions__btn--dislike:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-

@@ -49,8 +49,10 @@ function Comments() {
       likes: 0,
     };
 
-
+    
     setComments((prev) => [commentToAdd, ...prev]);
+
+    
     setNewComment("");
     setIsFocused(false);
   }
@@ -61,6 +63,7 @@ function Comments() {
   }
 
   function handleKeyDown(e) {
+  
     if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
       handleAddComment();
     }
@@ -70,7 +73,7 @@ function Comments() {
     <div className="comments">
       <h3 className="comments__heading">{comments.length} Comments</h3>
 
-    
+   
       <div className="comments__add">
         <div className="comments__add-avatar">
           <img src="https://picsum.photos/seed/me/36/36" alt="Your avatar" />
@@ -86,7 +89,7 @@ function Comments() {
             onKeyDown={handleKeyDown}
           />
 
-         
+        
           {isFocused && (
             <div className="comments__add-actions">
               <span className="comments__hint">Ctrl+Enter to post</span>
@@ -107,7 +110,7 @@ function Comments() {
         </div>
       </div>
 
-
+    
       <div className="comments__list">
         {comments.map((comment) => (
           <CommentItem key={comment.id} comment={comment} />
@@ -116,6 +119,7 @@ function Comments() {
     </div>
   );
 }
+
 
 function CommentItem({ comment }) {
   const [likes, setLikes] = useState(comment.likes);

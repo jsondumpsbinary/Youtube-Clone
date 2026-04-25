@@ -2,18 +2,24 @@ import { useState } from "react";
 import "./VideoActions.css";
 
 function VideoActions({ video }) {
-    const [likeCount, setLikeCount] = useState(
+
+  const [likeCount, setLikeCount] = useState(
     parseInt((video.likes || "0").replace("K", "")) * 1000
   );
+
   const [liked, setLiked] = useState(false);
+
   const [disliked, setDisliked] = useState(false);
+
   const [subscribed, setSubscribed] = useState(false);
 
   function handleLike() {
     if (liked) {
+     
       setLiked(false);
       setLikeCount((prev) => prev - 1);
     } else {
+      
       setLiked(true);
       setLikeCount((prev) => prev + 1);
       if (disliked) setDisliked(false);
@@ -36,16 +42,18 @@ function VideoActions({ video }) {
     setSubscribed((prev) => !prev);
   }
 
+ 
   function formatCount(n) {
     if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + "M";
     if (n >= 1000) return (n / 1000).toFixed(1) + "K";
     return String(n);
   }
-return (
+
+  return (
     <div className="video-actions">
-      {/* ── Left group: Like / Dislike ── */}
+    
       <div className="video-actions__group">
-        {/* Like Button */}
+      
         <button
           className={`video-actions__btn video-actions__btn--like ${liked ? "video-actions__btn--active" : ""}`}
           onClick={handleLike}
@@ -58,10 +66,10 @@ return (
           <span>{formatCount(likeCount)}</span>
         </button>
 
-        {/* Divider */}
+        
         <div className="video-actions__divider" />
 
-        {/* Dislike Button */}
+   
         <button
           className={`video-actions__btn video-actions__btn--dislike ${disliked ? "video-actions__btn--active" : ""}`}
           onClick={handleDislike}
@@ -74,7 +82,7 @@ return (
         </button>
       </div>
 
-      {/* ── Share Button ── */}
+
       <button className="video-actions__btn video-actions__btn--share">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
           <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
@@ -82,7 +90,7 @@ return (
         <span>Share</span>
       </button>
 
-      {/* ── Save Button ── */}
+
       <button className="video-actions__btn video-actions__btn--save">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
           <path d="M22 13h-4v4h-2v-4h-4v-2h4V7h2v4h4v2zm-8-6H2v1h12V7zM2 12h8v-1H2v1zm0 4h8v-1H2v1z" />
@@ -90,7 +98,7 @@ return (
         <span>Save</span>
       </button>
 
-      {/* ── Subscribe Button (right-aligned) ── */}
+   
       <button
         className={`video-actions__subscribe ${subscribed ? "video-actions__subscribe--subscribed" : ""}`}
         onClick={handleSubscribe}
