@@ -87,3 +87,9 @@
   transition: background-color 0.2s ease, transform 0.2s ease;
   cursor: pointer;
 }
+
+.video-detail__play-icon:hover {
+  background-color: var(--yt-red);
+  transform: scale(1.1);
+  border-color: transparent;
+}
