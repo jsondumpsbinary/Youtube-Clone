@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./CategoryPills.css";
 
 const CATEGORIES = [
@@ -18,13 +17,7 @@ const CATEGORIES = [
   "System Design",
 ];
 
-function CategoryPills() {
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  function handleCategoryClick(category) {
-    setActiveCategory(category);
-  }
-
+function CategoryPills({ activeCategory, onCategoryChange }) {
   return (
     <div className="category-pills">
       <div className="category-pills__scroll">
@@ -34,7 +27,7 @@ function CategoryPills() {
             className={`category-pills__pill ${
               activeCategory === category ? "category-pills__pill--active" : ""
             }`}
-            onClick={() => handleCategoryClick(category)}
+            onClick={() => onCategoryChange(category)}
           >
             {category}
           </button>
