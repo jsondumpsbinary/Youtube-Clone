@@ -180,3 +180,17 @@
   line-height: 1.65;
   color: var(--text-secondary);
 }
+
+.video-detail__sidebar {
+  position: sticky;
+  top: 20px;
+}
+
+.video-detail__sidebar-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
