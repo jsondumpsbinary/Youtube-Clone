@@ -61,3 +61,39 @@
   align-items: center;
   animation: fadeIn 0.2s ease both;
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.comments__hint {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.comments__add-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.comments__cancel-btn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  background: none;
+  color: var(--text-primary);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.comments__cancel-btn:hover {
+  background-color: var(--bg-hover);
+}
