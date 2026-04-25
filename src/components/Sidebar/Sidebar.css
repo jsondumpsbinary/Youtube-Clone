@@ -59,8 +59,9 @@
   background-color: var(--bg-hover);
 }
 
-.sidebar__item:first-child {
+.sidebar__item--active {
   background-color: var(--bg-hover);
+  font-weight: 600;
 }
 
 .sidebar__item-icon {
