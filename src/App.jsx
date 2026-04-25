@@ -4,6 +4,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Home from "./components/Home/Home";
 import VideoDetail from "./components/VideoDetail/VideoDetail";
 import History from "./components/History/History";
+import Shorts from "./components/Shorts/Shorts";
 import "./App.css";
 
 /* ── Format current time as "3:45 PM" ── */
@@ -34,15 +35,15 @@ function App() {
     setSidebarOpen((prev) => !prev);
   }
 
-  function handleSelectVideo(video) {
+  function onAddToHistory(video) {
     const entry = {
       id: video.id,
       title: video.title,
       thumbnail: video.thumbnail,
       channel: video.channel,
       channelAvatar: video.channelAvatar,
-      views: video.views,
-      duration: video.duration,
+      views: video.views || "Shorts",
+      duration: video.duration || "0:15",
       watchedAt: "Today",
       watchedTime: getCurrentTime(),
       progress: 0,
@@ -52,7 +53,10 @@ function App() {
       const filtered = prev.filter((v) => v.id !== video.id);
       return [entry, ...filtered];
     });
+  }
 
+  function handleSelectVideo(video) {
+    onAddToHistory(video);
     setSelectedVideo(video);
     setCurrentPage("video");
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -77,6 +81,9 @@ function App() {
           setHistory={setWatchHistory}
         />
       );
+    }
+    if (currentPage === "shorts") {
+      return <Shorts onAddToHistory={onAddToHistory} />;
     }
     if (currentPage === "video" && selectedVideo !== null) {
       return (
